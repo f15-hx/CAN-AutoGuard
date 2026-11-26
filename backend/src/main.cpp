@@ -1,5 +1,9 @@
 // Owner: M3 | Wires everything together
 // Setup check: confirms the compiler and both third-party libraries work.
+#include "CanFrame.h"
+#include "DetectionResult.h"
+#include "IDetector.h"
+#include "Alert.h"
 #include <iostream>
 #include <thread>
 #include "json.hpp"
