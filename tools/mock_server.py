@@ -1,3 +1,28 @@
+#!/usr/bin/env python3
+"""
+Owner: M4 | Mock backend for the dashboard (follows docs/api_contract.md v0.1)
+
+Why: lets the dashboard be built and demoed before the C++ backend (Server.cpp, detectors) exists.
+How: plays the logs from busmaster/logs/ in simulated time, runs SIMPLIFIED stand-ins of the four
+     detectors (Whitelist, SignalValidator, RateMonitor, ReplayDetector) and serves the same REST
+     endpoints and WebSocket messages as the real server will.
+
+Usage (from the repo root):
+    pip install -r tools/requirements.txt
+    python tools/mock_server.py                      # http://127.0.0.1:8080
+    python tools/mock_server.py --speed 2 --port 9000
+
+Then open http://127.0.0.1:8080/ (serves frontend/) or point the dashboard at the API.
+
+Behaviour you should know about:
+  * "live" mode plays normal_traffic.log in a loop (simulated live bus, no alerts expected).
+  * "replay" mode plays any log from busmaster/logs/ (PUT /api/mode {"mode":"replay","file":"attack_flood.log"}).
+  * POST /api/attack/start switches to the matching attack log, starts 2 s before the attack window and
+    returns to normal traffic when the attack is over. Attack parameters are accepted and validated but the
+    attack always is the one stored in the log (the mock cannot generate new traffic).
+  * Settings changes (thresholds, whitelist) live in memory only; nothing is written to backend/config/.
+  * These detectors are for UI testing only. Their numbers say nothing about the real C++ detectors.
+"""
 import argparse
 import bisect
 import csv
