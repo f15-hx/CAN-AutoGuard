@@ -121,6 +121,7 @@ input,select{
   padding:9px 12px;
   color:var(--text);
 }
+
 /* Owner: M4 | Sidebar and topbar */
 .sidebar-content{
   display:flex;
@@ -256,6 +257,25 @@ input,select{
 .system-icon{
   color:var(--primary);
 }
+
+/* Owner: M4 | Page placeholder */
+.page-placeholder{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px;
+}
+.page-placeholder h2{
+  margin:0 0 12px;
+  font-size:20px;
+}
+.page-placeholder p{
+  color:var(--text-muted);
+  margin:0;
+  line-height:1.6;
+}
+
+/* Responsive layout */
 @media(max-width:650px){
   .sidebar-content{
     min-height:auto;
