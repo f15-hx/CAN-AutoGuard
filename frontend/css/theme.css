@@ -1,1 +1,36 @@
-/* Owner: M4 | Colours, dark theme */
+:root{
+  --bg:#0b0f14;
+  --surface:#111820;
+  --surface-2:#18222c;
+  --border:#263340;
+  --text:#e6edf3;
+  --text-muted:#8b9baa;
+  --primary:#38d996;
+  --primary-hover:#26bd7b;
+  --success:#38d996;
+  --warning:#f5b942;
+  --danger:#ff5d67;
+  --info:#45a8ff;
+  --sidebar-bg:#0d131a;
+  --radius:10px;
+  --font:'Segoe UI',Arial,sans-serif;
+}
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+}
+button,input,select,textarea{
+  font:inherit;
+}
+button{
+  cursor:pointer;
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
